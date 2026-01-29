@@ -1,13 +1,16 @@
-const maskEmail = (email) => {
-    let firstChar = 1;
-    let skipfChar = email.slice(0,firstChar);
-    let indexDomain = email.lastIndexOf("@");
-    let domain = email.slice(indexDomain-1,email.length)
-    let maskEmail = email.slice(skipfChar,indexDomain)
-    maskEmail = maskEmail.replace(/./g, "*");
-    return skipfChar.concat(maskEmail).concat(domain);
+function maskEmail(email){
+  const erstchar = 1;
+  const skipchar = email.slice(0,erstchar);
+  const indexdomain = email.indexOf("@");
+  let maskmail = email.slice(erstchar,indexdomain - 1);
+  maskmail = maskmail.replace(/./g,"*");
+
+  
+  const domain = email.slice(indexdomain -1);
+
+  const final = skipchar + maskmail + domain;
+  return final;
 };
+let email = "abcasds@gmail.com";
 
-let email = "thequang.pham@gfn.hoho"
-
-console.log(maskEmail(email));
+console.log(maskEmail(email))
